@@ -1,6 +1,7 @@
 import { motion } from "motion/react"
 import "./style.css"
 import { useState } from "react"
+import { Icon } from "@iconify/react/dist/iconify.js"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -29,6 +30,7 @@ const spanVariant = {
 
 export const Works = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <motion.div
       variants={containerVariants}
@@ -38,18 +40,42 @@ export const Works = () => {
       {WORKS.map((item, i) => (
         <motion.div
           key={i}
-          className="work-list uppercase"
+          className="work-list uppercase cursor-default"
           variants={listVariant}
           onHoverStart={() => setHoveredIndex(i)} // Set hovered index
           onHoverEnd={() => setHoveredIndex(null)} // Clear hovered index
         >
-          {item.name}
-          <motion.span
+          <div className="flex items-center gap-3">
+            <p>
+              {item.name}
+            </p>
+            {item.categories.map((category, idx) => <span key={category + idx} className="text-xs md:text-sm text-brand bg-background px-3 py-1">{category}</span>)}
+
+          </div>
+          <motion.div
+            className="work-hover"
             variants={spanVariant}
             animate={hoveredIndex === i ? "hover" : "hidden"}
           >
-            {item.name}
-          </motion.span>
+            <div className="flex items-center gap-3">
+              <p>
+                {item.name}
+              </p>
+              {item.categories.map((category, idx) => <span key={category + idx} className="text-xs md:text-sm text-brand bg-background px-3 py-1">{category}</span>)}
+            </div>
+            <div className="flex gap-3 items-center">
+              {!!item.links.github && (
+                <a className="w-20 h-20 rounded-full cursor-pointer" href={item.links.github} target="_blank">
+                  <Icon icon="mdi:github" className="w-full h-full" />
+                </a>
+              )}
+              {!!item.links.website && (
+                <a className="w-20 h-20 p-3 rounded-full cursor-pointer" href={item.links.website} target="_blank">
+                  <Icon icon="cuida:open-in-new-tab-outline" className="w-full h-full" />
+                </a>
+              )}
+            </div>
+          </motion.div>
         </motion.div>
       ))}
     </motion.div>
@@ -59,51 +85,58 @@ export const Works = () => {
 const WORKS = [
   {
     name: "mytens.co.id",
+    categories: ["work"],
     links: {
-      github: "#",
-      website: "#"
+      github: "",
+      website: "https://mytens.co.id/"
     }
   },
   {
     name: "mezink",
+    categories: ["work"],
     links: {
-      github: "#",
-      website: "#"
+      github: "",
+      website: "https://mez.ink/"
     }
   },
   {
     name: "realfood (awalmula)",
+    categories: ["work"],
     links: {
-      github: "#",
-      website: "#"
+      github: "",
+      website: "https://realco.co.id/"
     }
   },
   {
     name: "Coba interview",
+    categories: ["collab portfolio"],
     links: {
-      github: "#",
-      website: "#"
+      github: "",
+      website: "https://cobainterview.com/"
     }
   },
-  {
-    name: "barberin",
-    links: {
-      github: "#",
-      website: "#"
-    }
-  },
+  // {
+  //   name: "barberin",
+  //   categories: ["portfolio"],
+  //   links: {
+  //     github: "#",
+  //     website: ""
+  //   }
+  // },
   {
     name: "color generator",
+    categories: ["portfolio"],
     links: {
-      github: "#",
-      website: "#"
+      github: "https://github.com/imanirvansyah/color-generator",
+      website: ""
     }
   },
   {
     name: "valorant info",
+    categories: ["portfolio"],
     links: {
-      github: "#",
-      website: "#"
+      github: "https://github.com/imanirvansyah/valorant-info",
+      website: ""
     }
   },
 ]
