@@ -31,6 +31,11 @@ const spanVariant = {
 export const Works = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
+
+  const handleTap = (index: number) => {
+    setHoveredIndex(hoveredIndex === index ? null : index); // Toggle active state on tap
+  };
+
   return (
     <motion.div
       variants={containerVariants}
@@ -44,6 +49,7 @@ export const Works = () => {
           variants={listVariant}
           onHoverStart={() => setHoveredIndex(i)} // Set hovered index
           onHoverEnd={() => setHoveredIndex(null)} // Clear hovered index
+          onTap={() => handleTap(i)}
         >
           <div className="flex items-center gap-3">
             <p>
@@ -58,19 +64,19 @@ export const Works = () => {
             animate={hoveredIndex === i ? "hover" : "hidden"}
           >
             <div className="flex items-center gap-3">
-              <p>
+              <p className="">
                 {item.name}
               </p>
               {item.categories.map((category, idx) => <span key={category + idx} className="text-xs md:text-sm text-brand bg-background px-3 py-1">{category}</span>)}
             </div>
             <div className="flex gap-3 items-center">
               {!!item.links.github && (
-                <a className="w-20 h-20 rounded-full cursor-pointer" href={item.links.github} target="_blank">
+                <a className="w-5 h-5 md:w-10 md:h-10 xl:w-20 xl:h-20 rounded-full cursor-pointer" href={item.links.github} target="_blank">
                   <Icon icon="mdi:github" className="w-full h-full" />
                 </a>
               )}
               {!!item.links.website && (
-                <a className="w-20 h-20 p-3 rounded-full cursor-pointer" href={item.links.website} target="_blank">
+                <a className="w-5 h-5 md:w-10 md:h-10 xl:w-20 xl:h-20 rounded-full cursor-pointer" href={item.links.website} target="_blank">
                   <Icon icon="cuida:open-in-new-tab-outline" className="w-full h-full" />
                 </a>
               )}
@@ -124,18 +130,18 @@ const WORKS = [
   //   }
   // },
   {
-    name: "color generator",
-    categories: ["portfolio"],
-    links: {
-      github: "https://github.com/imanirvansyah/color-generator",
-      website: ""
-    }
-  },
-  {
     name: "valorant info",
     categories: ["portfolio"],
     links: {
       github: "https://github.com/imanirvansyah/valorant-info",
+      website: "https://valorant-info-dnn9ezm40-imanirvs-projects.vercel.app"
+    }
+  },
+  {
+    name: "color generator",
+    categories: ["portfolio"],
+    links: {
+      github: "https://github.com/imanirvansyah/color-generator",
       website: ""
     }
   },
