@@ -26,9 +26,9 @@ export default function Home() {
             </div>
             <div className="mt-12 ">
               <ul className="font-extralight uppercase">
-                <li><a href="">github</a></li>
-                <li><a href="">linkedin</a></li>
-                <li><a href="">email</a></li>
+                <li><a href="https://github.com/imanirvansyah" target="_blank">github</a></li>
+                <li><a href="https://www.linkedin.com/in/iman-i-1bb97b11b/" target="_blank">linkedin</a></li>
+                <li><a href="mailto:imanirvansyaah@gmail.com" target="_blank">email</a></li>
               </ul>
             </div>
           </div>
