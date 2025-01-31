@@ -19,12 +19,12 @@ export default function Home() {
     <AnimatePresence>
       {loading && <Loading onComplete={() => setLoading(false)} key="loading" />}
       {!loading && (
-        <div className="flex flex-col md:flex-row md:items-center justify-start h-screen overflow-hidden p-3" key="content">
-          <div className="md:p-12">
+        <div className=" p-3" key="content">
+          <div className="md:p-12 flex justify-between items-center">
             <div>
               {WORDING.map((word, idx) => <p key={idx} className="font-extralight">{word}</p>)}
             </div>
-            <div className="mt-12 ">
+            <div className="">
               <ul className="font-extralight uppercase">
                 <li><a href="https://github.com/imanirvansyah" target="_blank">github</a></li>
                 <li><a href="https://www.linkedin.com/in/iman-i-1bb97b11b/" target="_blank">linkedin</a></li>
@@ -32,7 +32,7 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <div className="flex-1 mt-12 md:mt-0">
+          <div className="md:m-12 md:mt-0">
             <h1 className="uppercase mb-3 font-extralight md:font-normal">portfolio / works .</h1>
             <Works />
           </div>

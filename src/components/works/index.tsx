@@ -56,7 +56,6 @@ export const Works = () => {
               {item.name}
             </p>
             {item.categories.map((category, idx) => <span key={category + idx} className="text-xs md:text-sm text-brand bg-background px-3 py-1">{category}</span>)}
-
           </div>
           <motion.div
             className="work-hover"
@@ -118,17 +117,17 @@ const WORKS = [
     categories: ["collab portfolio"],
     links: {
       github: "",
-      website: "https://cobainterview.com/"
+      website: "https://cobainterview.com/demo"
     }
   },
-  // {
-  //   name: "barberin",
-  //   categories: ["portfolio"],
-  //   links: {
-  //     github: "#",
-  //     website: ""
-  //   }
-  // },
+  {
+    name: "Ikigai Website",
+    categories: ["portfolio"],
+    links: {
+      github: "https://github.com/imanirvansyah/ikigai-landing-page",
+      website: "https://ikigai-landing-page.vercel.app/"
+    }
+  },
   {
     name: "valorant info",
     categories: ["portfolio"],
