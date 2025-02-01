@@ -2,8 +2,9 @@
 import { Loading } from "@/components/loading";
 import { Works } from "@/components/works";
 import { Icon } from "@iconify/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence } from "motion/react";
+import { fetchDatabase } from "@/helpers/database";
 
 const WORDING = [
   <>Iman Irvansyah, <span className="font-bold text-brand">Frontend</span></>,
@@ -15,6 +16,19 @@ const WORDING = [
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await fetchDatabase("works");
+        setData(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    getData();
+  }, [])
   return (
     <AnimatePresence>
       {loading && <Loading onComplete={() => setLoading(false)} key="loading" />}
@@ -34,7 +48,7 @@ export default function Home() {
           </div>
           <div className="md:m-12 md:mt-0">
             <h1 className="uppercase mb-3 font-extralight md:font-normal">portfolio / works .</h1>
-            <Works />
+            <Works data={data} />
           </div>
         </div>
       )}

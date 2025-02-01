@@ -28,7 +28,16 @@ const spanVariant = {
   }
 }
 
-export const Works = () => {
+interface dataProps {
+  name: string,
+  categories: string[],
+  links: {
+    github: string,
+    website: string
+  }
+}
+
+export const Works: React.FC<{ data: dataProps[] }> = ({ data }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
 
@@ -42,7 +51,7 @@ export const Works = () => {
       initial="hidden"
       animate="visible"
     >
-      {WORKS.map((item, i) => (
+      {data.map((item, i) => (
         <motion.div
           key={i}
           className="work-list uppercase cursor-default"
@@ -86,62 +95,3 @@ export const Works = () => {
     </motion.div>
   )
 }
-
-const WORKS = [
-  {
-    name: "mytens.co.id",
-    categories: ["work"],
-    links: {
-      github: "",
-      website: "https://mytens.co.id/"
-    }
-  },
-  {
-    name: "mezink",
-    categories: ["work"],
-    links: {
-      github: "",
-      website: "https://mez.ink/"
-    }
-  },
-  {
-    name: "realfood (awalmula)",
-    categories: ["work"],
-    links: {
-      github: "",
-      website: "https://realco.co.id/"
-    }
-  },
-  {
-    name: "Coba interview",
-    categories: ["collab portfolio"],
-    links: {
-      github: "",
-      website: "https://cobainterview.com/demo"
-    }
-  },
-  {
-    name: "Ikigai Website",
-    categories: ["portfolio"],
-    links: {
-      github: "https://github.com/imanirvansyah/ikigai-landing-page",
-      website: "https://ikigai-landing-page.vercel.app/"
-    }
-  },
-  {
-    name: "valorant info",
-    categories: ["portfolio"],
-    links: {
-      github: "https://github.com/imanirvansyah/valorant-info",
-      website: "https://valorant-info-dnn9ezm40-imanirvs-projects.vercel.app"
-    }
-  },
-  {
-    name: "color generator",
-    categories: ["portfolio"],
-    links: {
-      github: "https://github.com/imanirvansyah/color-generator",
-      website: ""
-    }
-  },
-]
