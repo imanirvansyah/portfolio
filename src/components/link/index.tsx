@@ -1,4 +1,5 @@
 "use client"
+
 import LinkPrimitive from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -52,7 +53,7 @@ export const Link = ({ href, label }: { href: string; label: string }) => {
       el.removeEventListener("mouseenter", handleMouseEnter);
       el.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [])
+  }, {})
   return (
     <LinkPrimitive href={href} passHref legacyBehavior>
       <a ref={link} className="link">
