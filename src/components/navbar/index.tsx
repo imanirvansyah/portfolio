@@ -1,5 +1,8 @@
+"use client"
 import Image from "next/image";
 import { Link } from "../link";
+import { useEffect, useState } from "react";
+import { getCurrentTimeInTimezone } from "@/utils/time";
 
 export const Navbar = () => {
   return (
@@ -18,7 +21,23 @@ export const Navbar = () => {
           <Link href="/" label="About" />
         </li>
       </ul>
-      <div className="time">05:54PM GMT+7</div>
+      <CurrentTime />
     </div>
   )
 }
+
+
+
+export const CurrentTime = () => {
+  const [time, setTime] = useState(getCurrentTimeInTimezone());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(getCurrentTimeInTimezone());
+    }, 1000); // Update every 1 second
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return <p className="time">{time}</p>;
+};
