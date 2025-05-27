@@ -5,7 +5,12 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
 
-export const Link = ({ href, label }: { href: string; label: string }) => {
+interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string;
+  label: string;
+}
+
+export const Link = ({ href, label, ...props }: LinkProps) => {
   const link = useRef<HTMLAnchorElement>(null);
   const hoveredRef = useRef<HTMLSpanElement>(null);
   const unhoveredRef = useRef<HTMLSpanElement>(null);
@@ -55,7 +60,7 @@ export const Link = ({ href, label }: { href: string; label: string }) => {
     };
   }, {})
   return (
-    <LinkPrimitive href={href} passHref legacyBehavior>
+    <LinkPrimitive href={href} passHref legacyBehavior {...props}>
       <a ref={link} className="link">
         <span className="unhovered" ref={unhoveredRef}>{label}</span>
         <span className="hovered" ref={hoveredRef}>{label}</span>

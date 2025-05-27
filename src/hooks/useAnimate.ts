@@ -4,9 +4,7 @@ import CustomEase from "gsap/CustomEase";
 import { SplitText } from "gsap/SplitText";
 import { useState } from "react";
 
-gsap.registerPlugin(CustomEase);
-gsap.registerPlugin(SplitText);
-CustomEase.create("hop", "0.9, 0, 0.1, 1");
+gsap.registerPlugin(CustomEase, SplitText);
 
 export const useAnimate = () => {
 
@@ -14,6 +12,7 @@ export const useAnimate = () => {
   const [loading, setLoading] = useState(true);
 
   useGSAP(() => {
+    CustomEase.create("hop", "0.9, 0, 0.1, 1");
     const tl = gsap.timeline();
     const split = SplitText.create(".content h1", {
       type: "words, chars",

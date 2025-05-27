@@ -7,6 +7,9 @@ import dynamic from "next/dynamic";
 const LandingSection = dynamic(() => import('@/containers/landing').then((mod) => mod.LandingSection),
   { ssr: false }
 )
+const ProjectSection = dynamic(() => import('@/containers/projects').then((mod) => mod.ProjectSection),
+  { ssr: false }
+)
 
 
 export default function Home() {
@@ -18,6 +21,7 @@ export default function Home() {
       <div className="content">
         <Navbar />
         <LandingSection />
+        <ProjectSection />
       </div>
     </div>
   );

@@ -9,13 +9,13 @@ export const Navbar = () => {
       </div>
       <ul className="menus" >
         <li className="menu-item">
-          <Link href="/#" label="Works" />
+          <Link href="#project-section" label="Works" />
         </li>
         <li className="menu-item">
-          <Link href="/#" label="Experiences" />
+          <Link href="/" label="Experiences" />
         </li>
         <li className="menu-item">
-          <Link href="/#" label="About" />
+          <Link href="/" label="About" />
         </li>
       </ul>
       <div className="time">05:54PM GMT+7</div>

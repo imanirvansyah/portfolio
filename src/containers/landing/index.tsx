@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const LandingSection = () => {
   return (
-    <section className="section">
+    <section className="section" id="landing-section">
       <Image src="/cube.svg" alt="website-logo" width={450} height={450} className="display-item" />
       <div className="title">
         <h1>CREATIVE DEVELOPER</h1>
