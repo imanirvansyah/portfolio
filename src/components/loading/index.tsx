@@ -28,7 +28,7 @@ export const Loading = ({ timeline, setLoading }: any) => {
         opacity: 0,
         scale: 0.8,
         onComplete: () => {
-          setLoading(false);
+          setLoading(true);
         }
       })
   }

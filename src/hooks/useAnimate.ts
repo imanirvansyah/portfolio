@@ -10,6 +10,7 @@ export const useAnimate = () => {
 
   const [timeline, setTimeline] = useState<gsap.core.Timeline | null>(null);
   const [loading, setLoading] = useState(true);
+  const [wip, setWip] = useState(false);
 
   useGSAP(() => {
     CustomEase.create("hop", "0.9, 0, 0.1, 1");
@@ -53,7 +54,9 @@ export const useAnimate = () => {
   return {
     timeline,
     setTimeline,
+    wip,
     loading,
+    setWip,
     setLoading,
   }
 
