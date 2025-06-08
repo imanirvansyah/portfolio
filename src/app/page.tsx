@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 import { Loading } from "@/components/loading";
 import { useAnimate } from "@/hooks/useAnimate";
@@ -16,22 +17,29 @@ const ProjectSection = dynamic(() => import('@/containers/projects').then((mod) 
 
 
 export default function Home() {
-  const { timeline, wip, setWip, setLoading } = useAnimate();
+  // const { timeline, wip, setWip, setLoading } = useAnimate();
+
 
   return (
-    <div>
-      <Loading timeline={timeline} setLoading={setWip} />
-      <div className="content">
-        <Navbar />
-        <LandingSection />
-        <ProjectSection />
-      </div>
-      {wip && <ModalEarlyAccess timeline={timeline} onClose={() => {
-        setWip(false)
-        setLoading(false)
-      }} />}
-    </div>
-  );
+    <>
+      <Navbar />
+      <LandingSection />
+    </>
+  )
+  // return (
+  //   <div>
+  //     <Loading timeline={timeline} setLoading={setWip} />
+  //     <div className="content">
+  //       <Navbar />
+  //       <LandingSection />
+  //       <ProjectSection />
+  //     </div>
+  //     {wip && <ModalEarlyAccess timeline={timeline} onClose={() => {
+  //       setWip(false)
+  //       setLoading(false)
+  //     }} />}
+  //   </div>
+  // );
 }
 
 

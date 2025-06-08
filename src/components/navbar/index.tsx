@@ -1,16 +1,15 @@
 "use client"
-import Image from "next/image";
-import { Link } from "../link";
-import { useEffect, useState } from "react";
 import { getCurrentTimeInTimezone } from "@/utils/time";
+import { useEffect, useState } from "react";
+// import { Link } from "../link";
 
 export const Navbar = () => {
   return (
     <div className="navbar">
       <div className="logo">
-        <Image src="/logo.svg" alt="website-logo" width={130} height={50} />
+        <h3>IMNIRVNSYH</h3>
       </div>
-      <ul className="menus" >
+      {/* <ul className="menus" >
         <li className="menu-item">
           <Link href="#project-section" label="Works" />
         </li>
@@ -20,7 +19,7 @@ export const Navbar = () => {
         <li className="menu-item">
           <Link href="/" label="About" />
         </li>
-      </ul>
+      </ul> */}
       <CurrentTime />
     </div>
   )

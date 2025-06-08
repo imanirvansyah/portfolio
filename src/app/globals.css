@@ -1,4 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
+@import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap');
 
 * {
   margin: 0;
@@ -6,10 +7,17 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-1: #F0F0F0;
+  --bg-2: #E0E0E0;
+  --charcoal: #565656;
+  --bg-dark-1: #242B32;
+  --bg-dark-2: #363B47;
+}
+
 body {
-  font-family: 'PP Neue Montreal', sans-serif;
-  background-color: #1F1F1F;
-  color: #FFFFFF;
+  color: var(--charcoal);
+  /* background-color: #1F1F1F; */
 }
 
 h1,
@@ -17,15 +25,21 @@ h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+  font-family: 'PP Neue Montreal', sans-serif;
+  line-height: 100%;
+  letter-spacing: 10%;
+}
+
 p,
 span,
 a,
 li,
 ul,
 ol {
-  line-height: 200%;
-  letter-spacing: 10%;
+  font-family: "Wix Madefor Display", sans-serif;
+  line-height: 180%;
+  letter-spacing: 7%;
 }
 
 h1,
@@ -42,10 +56,6 @@ a {
   color: inherit;
 }
 
-p {
-
-  font-size: 0.8rem;
-}
 
 .loading-container {
   display: flex;
@@ -78,11 +88,12 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
+  padding: 20px 40px;
   font-size: 0.8rem;
-  opacity: 0;
-  transform: translateY(-100%);
+  /* opacity: 0; */
+  /* transform: translateY(-100%); */
   z-index: 999;
+  /* background-color: pink; */
 }
 
 .navbar ul {
@@ -93,44 +104,6 @@ p {
 
 .navbar ul li {
   text-align: center;
-}
-
-.content .display-item {
-  position: absolute;
-  z-index: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -70%) scale(0.5);
-  opacity: 0;
-}
-
-
-.content .title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  width: 100vw;
-  position: absolute;
-  bottom: 0;
-  gap: 2rem
-}
-
-.content .title h1 {
-  font-size: 6rem;
-  text-align: center;
-  text-transform: uppercase;
-  z-index: 1;
-  line-height: normal;
-  opacity: 0;
-}
-
-.content .title p {
-  max-width: 500px;
-  text-align: center;
-  z-index: 1;
-  opacity: 0;
 }
 
 .link {
@@ -279,4 +252,92 @@ p {
   transition: background-color 0.3s ease, color 0.3s ease;
   border: none;
   text-transform: uppercase;
+}
+
+
+
+/* UPDATED CLASS  */
+
+.container {
+  height: 100svh;
+  width: 100vw;
+  background-color: var(--bg-1);
+  padding: 70px 45px 45px;
+}
+
+.canvas-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-2);
+  border-radius: 30px;
+  position: relative;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 20px;
+}
+
+.hero-text .title {
+  bottom: 40px;
+  left: 40px;
+  font-size: 90px;
+  width: 50%;
+}
+
+.hero-text .subtitle {
+  bottom: 40px;
+  right: 40px;
+  max-width: 300px;
+  text-align: right;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .navbar {
+    padding: 20px;
+  }
+
+  .navbar .menus,
+  .navbar .time {
+    display: none;
+  }
+
+  .container {
+    padding: 60px 20px 20px;
+  }
+
+
+  .hero-text {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7em;
+  }
+
+  .hero-text .title {
+    font-size: 2rem;
+  }
+
+  .hero-text .subtitle {
+    text-align: left;
+    font-size: 0.9rem;
+    max-width: fit-content;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .hero-text .title {
+    font-size: 150px;
+  }
+
+  .hero-text .subtitle {
+    font-size: 1.2rem;
+    max-width: 400px;
+  }
 }
