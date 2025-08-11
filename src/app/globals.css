@@ -18,7 +18,7 @@
 body {
   color: white;
   font-family: 'PP Neue Montreal', sans-serif;
-  /* background-color: #1F1F1F; */
+  background-color: black;
 }
 
 h1,
@@ -57,7 +57,7 @@ a {
   color: inherit;
 }
 
-button {
+.btn {
   padding: 10px 40px;
   background-color: white;
   color: black;
@@ -68,7 +68,7 @@ button {
   text-transform: uppercase;
 }
 
-button:hover {
+.btn:hover {
   background-color: rgba(255, 255, 255, 0.8);
   animation: button-hover 0.3s ease;
 }
@@ -184,4 +184,78 @@ section {
   padding: 1.2rem;
   backdrop-filter: blur(1px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Modal Box with Glass Effect */
+.modal-content {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1rem;
+  padding: 5rem 2rem;
+  width: min(100%, 420px);
+  color: #fff;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  animation: fadeUp 0.4s ease;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+}
+
+/* Close Button */
+.modal-close {
+  width: 100%;
+  background-color: white;
+  border: none;
+  color: black;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 999px;
+}
+
+.modal-close:hover {
+  opacity: 0.7;
+}
+
+/* Progress Bar */
+.progress-bar {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #00d8cc, #00a8ff);
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
