@@ -1,7 +1,7 @@
 "use client"
 import { getCurrentTimeInTimezone } from "@/utils/time";
 import { useEffect, useState } from "react";
-// import { Link } from "../link";
+import { Link } from "../link";
 
 export const Navbar = () => {
   return (
@@ -9,7 +9,7 @@ export const Navbar = () => {
       <div className="logo">
         <h3>IMNIRVNSYH</h3>
       </div>
-      {/* <ul className="menus" >
+      <ul className="menus" >
         <li className="menu-item">
           <Link href="#project-section" label="Works" />
         </li>
@@ -19,13 +19,11 @@ export const Navbar = () => {
         <li className="menu-item">
           <Link href="/" label="About" />
         </li>
-      </ul> */}
+      </ul>
       <CurrentTime />
     </div>
   )
 }
-
-
 
 export const CurrentTime = () => {
   const [time, setTime] = useState(getCurrentTimeInTimezone());
@@ -33,7 +31,7 @@ export const CurrentTime = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setTime(getCurrentTimeInTimezone());
-    }, 1000); // Update every 1 second
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);

@@ -18,7 +18,7 @@ export const Cube = () => {
     meshRef.current.rotation.y += delta
   })
   return (
-    <mesh ref={meshRef} position={[0, .5, 0]} geometry={nodes.Cube.geometry} >
+    <mesh ref={meshRef} position={[0, .2, 0]} geometry={nodes.Cube.geometry} scale={0.9}>
       <MeshTransmissionMaterial
         transmission={1}
         thickness={0.2}

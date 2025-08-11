@@ -27,7 +27,7 @@ export const Icosahedron = () => {
     //     backside
     //   />
     // </mesh>
-    <mesh ref={meshRef} scale={0.3} position={[0, .5, 0]}>
+    <mesh ref={meshRef} scale={0.3} position={[0, .2, 0]}>
       <icosahedronGeometry />
       <meshStandardMaterial color="#242B32" />
     </mesh>
